@@ -1,16 +1,14 @@
-BEGIN TRANSACTION;
+CREATE DATABASE IF NOT EXISTS talares;
+use talares;
 
-Create database if not exist 'talares' default character set Latin1;
-use 'talares';
-
-CREATE TABLE if not exist 'MetodiPagamenti'(
+CREATE TABLE if not existS MetodiPagamenti(
 	C_metodo INT(11),
  	Descrizione char(255),
 	Variazione INT(11),
 	PRIMARY KEY (C_metodo)
 );
 
-CREATE TABLE if not exist 'Ordine' (
+CREATE TABLE if not existS Ordine (
 	Spesa float,
 	Prioritario BOOLEAN,
 	Indirizzo char(255),
@@ -24,11 +22,10 @@ CREATE TABLE if not exist 'Ordine' (
 );
 
 
-CREATE TABLE if not exist 'OggettiOrdine' (
+CREATE TABLE if not existS OggettiOrdine (
 	C_Ord Index,
 	Cod_Oggetto Index,
 	FOREIGN KEY (C_Ord) REFERENCES Ordine(C_Ord),
 	Foreign KEY (Cod_oggetto) Reference DB_Magazzino(CodMagazzino)
 );
 
-COMMIT;
